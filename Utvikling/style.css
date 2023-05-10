@@ -1,0 +1,12 @@
+.color-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .html-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
