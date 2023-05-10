@@ -10,3 +10,6 @@
     align-items: center;
   }
   
+  input, button, select{
+    margin-bottom: 7px;
+  }
