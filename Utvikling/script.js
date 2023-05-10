@@ -54,7 +54,7 @@ var options = [
   { value: "h2", text: "<h2>" },
 ];
 
-for (let i = 0; i < options.length; i++) {
+for (let i = 0; i < options.length; i++) { // For loop som returnerer alt fra array options.
   var option = document.createElement("option");
   option.value = options[i].value;
   option.text = options[i].text;
@@ -99,7 +99,6 @@ htmlOptionsDiv.appendChild(fontInput);
 htmlOptionsDiv.appendChild(textSize);
 htmlOptionsDiv.appendChild(positionButton);
 htmlOptionsDiv.appendChild(SubmitButton);
-
 //
 
 // Event listeners for alle buttons
@@ -107,7 +106,7 @@ ColorButton.addEventListener("click", EndringFarge)
 SubmitButton.addEventListener('click', placeText);
 positionButton.addEventListener('click', positionSet);
 textColorInput.addEventListener("input", function() {
-  const selectedElements = document.querySelectorAll(selectDrop.value);
+  const selectedElements = document.querySelectorAll(selectDrop.value); // Returns all element descendants of node that match selectors
   selectedElements.forEach(element => {
     element.style.color = textColorInput.value;
   });
@@ -131,19 +130,20 @@ function EndringFarge(e) {
   }
 
 
-//Funksjon som setter posisjonen på skjermen hvor man plasserer teksten
+
+// Funksjon som velger koordinatene til hvor teksten skal være plassert.
 var position = [];
 function positionSet() {
     position = [];
     positionButton.innerHTML = "Click on the screen";
     var pressed = true;
-    document.addEventListener("click", function positionSet(e) {
+    document.addEventListener("click", function positionSet(e) { // Lager en midlertidig funksjon som sjekker om pressed er true eller false.
         if (pressed) {
             return pressed = false;
         } else {
             var x = e.pageX;
             var y = e.pageY;
-            position.push(x, y);
+            position.push(x, y); //Pusher koordinatene til position array.
             positionButton.innerHTML = "Position is (" + position + ")";
             console.log(position);
             document.removeEventListener("click", positionSet);
@@ -153,10 +153,10 @@ function positionSet() {
 
 
 function placeText(e) {
-  if(selectDrop.value === "Choose HTML-Element") {
+  if(selectDrop.value === "Choose HTML-Element") { // Hvis en HTML-element ikke er valgt, skal det dukke opp en feilmelding.
     alert("Please select an HTML element");
     return;
-  } else {
+  } else { // Ellers skal HTML-elementen lages.
     const newElement = document.createElement(selectDrop.value);
     newElement.innerHTML = elementText.value;
     newElement.style.position = "absolute";
