@@ -123,7 +123,7 @@ function EndringFarge(e) {
     document.body.style.backgroundColor = color;
   }
   
-  function isValidColor(color) { // Lager en ny option element for å sammenligne valuen til farge input med option sin style.
+  function isValidColor(color) { // Lager en ny option element for å sammenligne valuen til farge input med option sin style
     var style = new Option().style;
     style.color = color;
     return style.color !== '';
